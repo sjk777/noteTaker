@@ -35,5 +35,17 @@ notes.post('/', (req,res)=>{
         });
 
     
-    }
-})
+    };
+
+    const reponse = {
+        status: "success",
+        body: newNote,
+    };
+   
+    res.status(201).json(response);
+})else{
+    res.status(500).json("error")
+}
+
+
+module.exports= notes;
