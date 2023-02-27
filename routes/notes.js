@@ -11,3 +11,20 @@ notes.get('/', async(req,res)=>{
 
     console.log(`${req.method} request recieved for reviews`);
 });
+
+notes.post('/', (req,res)=>{
+    console.info(`${req.method} request received to add a review`);
+    console.log(req.body)
+
+    const {title, text} = req.body;
+
+    if(text && title){
+        const newNote = {
+            title,
+            text,
+            id: uuid(),
+        };
+
+        fs.
+    }
+})
