@@ -25,6 +25,15 @@ notes.post('/', (req,res)=>{
             id: uuid(),
         };
 
-        fs.
+        fs.readFile(`db/db.json`, "utf8", (err,data)=>{
+            const fileData=JSON.parse(data);
+            fileData.push(newNote);
+
+            fs.writeFile(`db/db.json`,JSON.stringify(fileData,null,4),(err)=>
+            err ? console.error(err) :console.log(`Review for ${newNote.title} has been written to file`)
+            )
+        });
+
+    
     }
 })
